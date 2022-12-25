@@ -1,3 +1,5 @@
+import "../../container";
+
 import express from "express";
 
 import { errorMiddleware } from "./middlewares/errorMiddleware";
