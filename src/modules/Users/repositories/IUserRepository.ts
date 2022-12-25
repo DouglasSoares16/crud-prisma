@@ -4,6 +4,7 @@ import { IUserDTO } from "../dtos/IUserDTO";
 interface IUserRepository {
   create(data: IUserDTO): Promise<User>;
   findByEmail(email: string): Promise<User | null>;
+  findAll(): Promise<User[]>;
 }
 
 export { IUserRepository };
