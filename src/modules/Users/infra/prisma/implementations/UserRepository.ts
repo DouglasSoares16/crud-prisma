@@ -1,11 +1,24 @@
 import { User } from "@prisma/client";
+
 import { prismaClient } from "../../../../../shared/infra/prisma/connection";
+import { IUpdateUserDTO } from "../../../dtos/IUpdateUserDTO";
 import { IUserDTO } from "../../../dtos/IUserDTO";
 import { IUserRepository } from "../../../repositories/IUserRepository";
 
 class UserRepository implements IUserRepository {
   private repository = prismaClient.user;
 
+  async updateUserName({ user_id, name }: IUpdateUserDTO): Promise<void> {
+    await this.repository.update({
+      where: {
+        id: user_id,
+      },
+      data: {
+        name,
+      }
+    });
+  }
+  
   async findById(user_id: string): Promise<User | null> {
     return this.repository.findUnique({
       where: {
