@@ -1,15 +1,12 @@
 import { User } from "@prisma/client";
 import { hash } from "bcryptjs";
-import { inject, injectable } from "tsyringe/dist/typings/decorators";
 
 import { IUserDTO } from "../../dtos/IUserDTO";
 import { UsersErrors } from "../../errors/UsersErrors";
 import { IUserRepository } from "../../repositories/IUserRepository";
 
-@injectable()
 class CreateUserUseCase {
   constructor(
-    @inject("UserRepository")
     private userRepository: IUserRepository
   ) {}
 
