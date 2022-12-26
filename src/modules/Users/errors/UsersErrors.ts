@@ -6,4 +6,10 @@ export namespace UsersErrors {
       super("Email Already Exists");
     }
   }
+
+  export class UserDoesNotExists extends AppError {
+    constructor() {
+      super("User Does Not Exists", 404);
+    }
+  }
 }
