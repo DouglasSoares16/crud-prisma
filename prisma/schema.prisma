@@ -29,3 +29,18 @@ model Address {
 
   @@map("addresses")
 }
+
+model Tech {
+  id         String   @id @default(uuid())
+  name       String
+  type       TypeTech
+  created_at DateTime @default(now())
+
+  @@map("techs")
+}
+
+enum TypeTech {
+  FRONT
+  BACK
+  FULLSTACK
+}
