@@ -9,6 +9,7 @@ import { EditUserController } from "../../../modules/Users/useCases/editUser/Edi
 import { ListAddressesByUserController } from "../../../modules/Users/useCases/listAddressesByUser/ListAddressesByUserController";
 import { ListAllUsersController } from "../../../modules/Users/useCases/listAllUsers/ListAllUsersController";
 import { ListTechsController } from "../../../modules/Users/useCases/listTechs/ListTechsController";
+import { ListTechsByUserController } from "../../../modules/Users/useCases/listTechsByUser/ListTechsByUserController";
 
 const createUserController = new CreateUserController();
 const listAllUsersController = new ListAllUsersController();
@@ -19,6 +20,7 @@ const listAddressesByUserController = new ListAddressesByUserController();
 const createTechController = new CreateTechController();
 const createUserTechController = new CreateUserTechController();
 const listTechsController = new ListTechsController();
+const listTechsByUserController = new ListTechsByUserController();
 
 const routes = Router();
 
@@ -33,6 +35,7 @@ routes.patch("/users/:id", editUserController.handle);
 routes.get("/users/:user_id/addresses", listAddressesByUserController.handle);
 routes.post("/users/:user_id/addresses", createAddressController.handle);
 routes.post("/users/:user_id/techs", createUserTechController.handle);
+routes.get("/users/:user_id/techs", listTechsByUserController.handle);
 
 
 export { routes };
