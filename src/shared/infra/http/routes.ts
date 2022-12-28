@@ -8,6 +8,7 @@ import { DeleteUserController } from "../../../modules/Users/useCases/deleteUser
 import { EditUserController } from "../../../modules/Users/useCases/editUser/EditUserController";
 import { ListAddressesByUserController } from "../../../modules/Users/useCases/listAddressesByUser/ListAddressesByUserController";
 import { ListAllUsersController } from "../../../modules/Users/useCases/listAllUsers/ListAllUsersController";
+import { ListTechsController } from "../../../modules/Users/useCases/listTechs/ListTechsController";
 
 const createUserController = new CreateUserController();
 const listAllUsersController = new ListAllUsersController();
@@ -17,12 +18,14 @@ const createAddressController = new CreateAddressController();
 const listAddressesByUserController = new ListAddressesByUserController();
 const createTechController = new CreateTechController();
 const createUserTechController = new CreateUserTechController();
+const listTechsController = new ListTechsController();
 
 const routes = Router();
 
 routes.post("/users", createUserController.handle);
 routes.get("/users", listAllUsersController.handle);
 routes.post("/techs", createTechController.handle);
+routes.get("/techs", listTechsController.handle);
 
 routes.delete("/users/:id", deleteUserController.handle);
 routes.patch("/users/:id", editUserController.handle);
