@@ -8,12 +8,13 @@ datasource db {
 }
 
 model User {
-  id         String    @id @default(uuid())
-  name       String
-  email      String
-  password   String
-  created_at DateTime  @default(now())
-  Address    Address[]
+  id          String       @id @default(uuid())
+  name        String
+  email       String
+  password    String
+  created_at  DateTime     @default(now())
+  Address     Address[]
+  Users_Techs UsersTechs[]
 
   @@map("users")
 }
@@ -31,12 +32,24 @@ model Address {
 }
 
 model Tech {
-  id         String   @id @default(uuid())
-  name       String
-  type       TypeTech
-  created_at DateTime @default(now())
+  id          String       @id @default(uuid())
+  name        String
+  type        TypeTech
+  created_at  DateTime     @default(now())
+  Users_Techs UsersTechs[]
 
   @@map("techs")
+}
+
+model UsersTechs {
+  id         String   @id @default(uuid())
+  user_id    String
+  user       User     @relation(fields: [user_id], references: [id])
+  tech_id    String
+  tech       Tech     @relation(fields: [tech_id], references: [id])
+  created_at DateTime @default(now())
+
+  @@map("users_techs")
 }
 
 enum TypeTech {
