@@ -6,6 +6,14 @@ import { ITechRepository } from "../../../repositories/ITechRepository";
 class TechRepository implements ITechRepository {
   private repository = prismaClient.tech;
   
+  async findById(tech_id: string): Promise<Tech | null> {
+    return this.repository.findFirst({
+      where: {
+        id: tech_id
+      }
+    });
+  }
+  
   async findByName(name: string): Promise<Tech | null> {
     return this.repository.findFirst({
       where: {

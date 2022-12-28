@@ -3,6 +3,7 @@ import { CreateAddressController } from "../../../modules/Users/useCases/createA
 import { CreateTechController } from "../../../modules/Users/useCases/createTech/CreateTechController";
 
 import { CreateUserController } from "../../../modules/Users/useCases/createUser/CreateUserController";
+import { CreateUserTechController } from "../../../modules/Users/useCases/createUserTech/CreateUserTechController";
 import { DeleteUserController } from "../../../modules/Users/useCases/deleteUser/DeleteUserController";
 import { EditUserController } from "../../../modules/Users/useCases/editUser/EditUserController";
 import { ListAddressesByUserController } from "../../../modules/Users/useCases/listAddressesByUser/ListAddressesByUserController";
@@ -15,6 +16,7 @@ const editUserController = new EditUserController();
 const createAddressController = new CreateAddressController();
 const listAddressesByUserController = new ListAddressesByUserController();
 const createTechController = new CreateTechController();
+const createUserTechController = new CreateUserTechController();
 
 const routes = Router();
 
@@ -27,6 +29,7 @@ routes.patch("/users/:id", editUserController.handle);
 
 routes.get("/users/:user_id/addresses", listAddressesByUserController.handle);
 routes.post("/users/:user_id/addresses", createAddressController.handle);
+routes.post("/users/:user_id/techs", createUserTechController.handle);
 
 
 export { routes };

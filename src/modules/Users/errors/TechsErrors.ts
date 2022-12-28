@@ -6,4 +6,10 @@ export namespace TechsErrors {
       super("Tech Already Exists");
     }
   }
+
+  export class TechNotExists extends AppError {
+    constructor() {
+      super("Tech Not Exists!", 404);
+    }
+  }
 }
