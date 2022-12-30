@@ -42,4 +42,6 @@
   `/users/:id` - Deletar um usuário
 
 ### `PATCH`
-  `/users/:id` - Atualizar o nome de um usuário
+- `/users/:id` - Atualizar o nome de um usuário
+  - `Body`:
+    - `name: string`
